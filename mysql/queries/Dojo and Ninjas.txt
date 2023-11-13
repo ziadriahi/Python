@@ -1,0 +1,53 @@
+-------Create 3 new dojos--------------
+
+insert into dojos (name) values ('Miami Dojo');
+insert into dojos (name) values ('NY Dojo');
+insert into dojos (name) values ('California Dojo');
+
+-------Delete the 3 dojos you just created-------
+
+delete from dojos;
+
+-------Create 3 more dojos----------
+
+insert into dojos (name) values ('Phila Dojo');
+insert into dojos (name) values ('Vegas Dojo');
+insert into dojos (name) values ('Texas Dojo');
+
+-------Create 3 ninjas that belong to the first dojo-----
+
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Jackie','Chan', 30, 4);
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Sam','Simpson', 20, 4);
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Donald','Smith', 25, 4);
+
+-------Create 3 ninjas that belong to the second dojo------
+
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Bruce','Lee', 28, 5);
+insert into ninjas (first_name, last_name, age, dojo_id) values ('John','Doe', 40, 5);
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Ashly','Cole', 18, 5);
+
+-------Create 3 ninjas that belong to the third dojo-------
+
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Jet','Lee', 37, 6);
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Harry','Smith', 19, 6);
+insert into ninjas (first_name, last_name, age, dojo_id) values ('Emilie','Carmen', 26, 6);
+
+-------Retrieve all the ninjas from the first dojo--------
+
+select * 
+from dojos 
+Left Join ninjas on dojos.id = ninjas.dojo_id 
+where dojos.id=4;
+
+-------Retrieve all the ninjas from the last dojo------
+
+select * 
+from dojos 
+Left Join ninjas on dojos.id = ninjas.dojo_id 
+where dojos.id = (select id from dojos order by dojos.id desc limit 1);
+
+-------Retrieve the last ninja's dojo-----
+
+select * 
+from dojos 
+where dojos.id = (select dojo_id from ninjas order by ninjas.dojo_id desc limit 1);
