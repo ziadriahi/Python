@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}} ">
+    <title>ChekerBoard</title>
+</head>
+<body>
+    <h1>CheckerBoard</h1>
+    <table>
+        {% for i in range(x) %}
+        <tr>
+            {% for j in range (y) %}
+            {% if (i+j)%2 == 0 %}
+            <td {{color1}}></td>
+            {% else %}
+            <td {{color2}}></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
