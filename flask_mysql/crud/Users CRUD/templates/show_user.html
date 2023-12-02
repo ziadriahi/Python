@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user</title>
+</head>
+<body>
+    <h2>User {{user.id}}</h2>
+    <div>
+        <p>Full Name : {{user.first_name}} {{user.last_name}}</p>
+        <p>Email : {{user.email}} </p>
+        <p>Created On : {{user.created_at}} </p>
+        <p>Last Updated On : {{user.updated_at}} </p>
+    </div>
+    <a href="/user/edit/{{user.id}}">Edit </a><span>| </span><a href="/user/delete/{{user.id}}">Delete</a>
+</body>
+</html>
